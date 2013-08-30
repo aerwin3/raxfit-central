@@ -1,12 +1,16 @@
-from mongoalchemy.document import Document, Index
-from mongoalchemy.fields import StringField,IntField
+from shared import db
 
-class Class(Document):
+class Class(db.Model):
+    __tablename__= 'classes'
 
-    time = StringField()
-    coach = StringField()
-    size = IntField(min_value=0, required=True)
+    id = db.Column(db.Integer, primary_key = True)
+    size = db.Column(db.Integer, nullable=False)
+    coach_id = db.Column(db.Integer, db.ForeignKey('athletes.id'))
+    coach = db.relationship('Athlete', primaryjoin='Athlete.id==Class.coach_id')
 
-    def __repr__(self):
-        return super(Class, self).__repr__()
+    def __init__(self, size, coach_id):
+        self.size = size
+        self.coach_id = coach_id
 
+    def __str__(self):
+        return "Class"

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{#TODO: add Javascript to update the nav bar#}
+{% block body %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Coach</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for athlete in athletes %}
+            <tr>
+                <td>{{ athlete.first_name }}</td>
+                <td>{{ athlete.last_name }}</td>
+                <td>{{ athlete.is_a_coach() }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

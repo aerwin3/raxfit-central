@@ -3,5 +3,20 @@
 
 
 {% block body %}
-    This is the panel that will hold the classes
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Coach's Name</th>
+            <th>Class Size</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for class in classes %}
+            <tr>
+                <td>{{ class.coach.first_name }} {{ class.coach.last_name }}</td>
+                <td>{{ class.size }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

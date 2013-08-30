@@ -1,1 +1,4 @@
-__author__ = 'alan.erwin'
+from Athlete import *
+from Class import *
+
+
