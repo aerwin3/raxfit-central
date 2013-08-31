@@ -1,8 +1,8 @@
 from flask import Flask
 from shared import db
-from routes.base import blueprint as base_blueprint
-from routes.classes import blueprint as classes_blueprint
-from routes.athletes import blueprint as athletes_blueprint
+from blueprints.base import blueprint as base_blueprint
+from blueprints.classes import blueprint as classes_blueprint
+from blueprints.athletes import blueprint as athletes_blueprint
 
 # Setting up the application and the configuration
 app = Flask(__name__)

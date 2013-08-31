@@ -3,20 +3,25 @@
 
 
 {% block body %}
-    <table class="table">
+    <table class="table table-condensed">
         <thead>
         <tr>
-            <th>Coach's Name</th>
+            <th>Workout of the Day</th>
+            <th>Class Type</th>
             <th>Class Size</th>
         </tr>
         </thead>
         <tbody>
         {% for class in classes %}
             <tr>
-                <td>{{ class.coach.first_name }} {{ class.coach.last_name }}</td>
+                <td>{{ class.wod }}</td>
+                <td>{{ class.type.value }}</td>
                 <td>{{ class.size }}</td>
+                <td><a href="edit/{{ class.id }}"><span class="glyphicon glyphicon-pencil"></span></a> </td>
+                <td><a href="delete/{{ class.id }}">X</a></td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+    <a href="new" class="btn btn-primary">Create Class</a>
 {% endblock %}

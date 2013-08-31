@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{#TODO: add Javascript to update the nav bar#}
+
+
+{% block body %}
+    <form class="form-horizontal" role="form" action="create" method="POST" xmlns="http://www.w3.org/1999/html">
+        <div class="form-group">
+            <label for="input" class="col-lg-1 control-label">Wod</label>
+            <div class="col-lg-11">
+                <input type="text" class="form-control" name="wod" placeholder="Wod Description">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input" class="col-lg-1 control-label">Class Type</label>
+            <div class="col-lg-11">
+            <select class="form-control" name="class_type">
+                {% for class_type  in class_types %}
+                    <option value={{ class_type.id }}>{{ class_type.value }}</option>
+                {% endfor %}
+            </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input" class="col-lg-1 control-label">Class Size</label>
+            <div class="col-lg-11">
+            <select class="form-control" name="size">
+                {% for value  in range(1,100) %}
+                    <option>{{ value }}</option>
+                {% endfor %}
+            </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-1">
+                <input type="submit" class="btn btn-primary"/>
+            </div>
+            <div class="col-lg-11"/>
+        </div>
+    </form>
+{% endblock %}
