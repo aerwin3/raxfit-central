@@ -13,9 +13,8 @@ def new():
     class_types = ClassType.query.all()
     return render_template("classes/new.html", class_types=class_types)
 
-@blueprint.route('/create', methods=['POST','PUT'])
+@blueprint.route('/create', methods=['POST'])
 def create():
-
     form = request.form
     new_class = Class(form['size'], form['wod'], form['class_type'])
     db.session.add(new_class)

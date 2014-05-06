@@ -2,28 +2,20 @@
 <html>
 <head>
     <link href="/static/js/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/base.css" rel="stylesheet">
+    <link href="/static/js/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
     <script src="/static/js/jquery/jquery-2.0.3.min.js"></script>
     <script src="/static/js/bootstrap/js/bootstrap.min.js"></script>
-    {% block head %}
-        <title>RaxCrossfit Central</title>
-    {% endblock %}
+    {% block head %}{% endblock %}
 </head>
 <body>
-    <div class="container">
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Brand</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="/classes">Classes</a></li>
-            </ul>
-            <ul class="nav navbar-nav">
-                <li><a href="/athletes">Athletes</a></li>
-            </ul>
-        </nav>
+<div id="wrap">
+    <div id="main content-area">
+            {% block main %}{% endblock %}
     </div>
-    <div id="fix-for-navbar-fixed-top-spacing" style="height: 60px;">&nbsp;</div>
-    <div class="panel">{%block body  %}{% endblock %}</div>
+</div>
+<div id="footer">
+    {% block footer %}{% endblock %}
+</div>
 </body>
 </html>
